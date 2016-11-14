@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="453.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="concepttimer.UI.FXMLController">
+   <children>
+      <Button id="startButton" layoutX="25.0" layoutY="349.0" mnemonicParsing="false" onAction="#startTimer" text="Start" />
+      <Button id="triggerButton1" layoutX="103.0" layoutY="349.0" mnemonicParsing="false" text="Trig1" />
+      <Button id="triggerButton2" layoutX="175.0" layoutY="349.0" mnemonicParsing="false" text="Trig2" />
+      <Button id="stopButton" layoutX="251.0" layoutY="349.0" mnemonicParsing="false" onAction="#startTimer" text="Stop" />
+      <Circle id="yb1" fx:id="yb1" fill="#ffbf1f" layoutX="381.0" layoutY="39.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle id="yb2" fx:id="yb2" fill="#ffce1f" layoutX="381.0" layoutY="101.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle id="yb3" fx:id="yb3" fill="#ffd71f" layoutX="381.0" layoutY="160.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle id="gb1" fx:id="gb1" fill="#2aff1f" layoutX="381.0" layoutY="225.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle id="faultb" fx:id="faultb" fill="#ff1f1f" layoutX="381.0" layoutY="292.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextArea fx:id="infoArea" layoutX="67.0" layoutY="184.0" prefHeight="133.0" prefWidth="188.0" text="Press Start to Begin Simulation" />
+      <Text fx:id="clockField" layoutX="63.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00:00" wrappingWidth="223.13671875">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Text>
+   </children>
+</Pane>
