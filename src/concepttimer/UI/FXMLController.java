@@ -39,7 +39,7 @@ public class FXMLController extends Thread {
      private void startTimer() throws InterruptedException{
         Race r = new Race(); 
         if (!racing){  
-           
+           // blah
             racing = true;
             Timer t = new Timer();
             TimerTask tt = new TimerTask() {
