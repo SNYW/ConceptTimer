@@ -52,6 +52,8 @@ public class Race {
     
     public void stopRace(){
     rTimer.cancel();
+    rTimer.purge();
+    racing = false;
     }
     
     public String getRaceTime() {
@@ -69,13 +71,12 @@ public class Race {
             if (tripFlag1 == tripFlag2) dogRunning = !dogRunning; }
         
         if (currentDog <= dogs.size()-1){
-        s = dogs.get(currentDog).getName()+" started to run at "+rTime+"\n";
-        
-        this.currentDog++;
-        this.currentRun++;
-        return s;
+            s = dogs.get(currentDog).getName()+" started to run at "+rTime+"\n";
+            this.currentDog++;
+            this.currentRun++;
+            return s;
         }else{
-        s = "Last Dog has run \n";
+            s = "Last Dog has run \n";
         }
        
     return s;

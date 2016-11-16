@@ -65,8 +65,8 @@ public class FXMLController extends Thread {
      
      @FXML
      private void stopTimer(){
-     r.stopRace();
-     racing = false;
+     if (r.racing) {r.stopRace();
+     racing = false; }
      }
      
      @FXML
