@@ -11,11 +11,15 @@ import java.util.concurrent.TimeUnit;
 
 public class Race {
     public boolean racing = false;
-    private String rTime = "00:00";
+    private String rTime = "00:00:00";
     private Long startTime;
     private int ms;
     private int currentDog = 0;
-    private final List<Dog> dogs;
+    private List<Dog> dogs = null;
+    private boolean dogRunning = false;
+    private boolean tripFlag1 = false;
+    private boolean tripFlag2 = true;
+    private int currentRun = 0;    
    Timer rTimer = new Timer(); 
   
     public Race(List d) {
@@ -55,12 +59,29 @@ public class Race {
     }
     
     public String trig1(){
-        String s = dogs.get(currentDog).getName()+" has started to run at "+rTime;
-        this.currentDog++;
-        return s;
+        tripFlag1 = !tripFlag1;
+        String s;
+        if (dogRunning){
+            s = "Crossover Fault \n"
+                +dogs.get(currentDog).getName()+" faulted at "+rTime+"\n";
+                return s; }
+        if (currentRun != 1){
+            if (tripFlag1 == tripFlag2) dogRunning = !dogRunning; }
         
+        if (currentDog <= dogs.size()-1){
+        s = dogs.get(currentDog).getName()+" started to run at "+rTime+"\n";
+        
+        this.currentDog++;
+        this.currentRun++;
+        return s;
+        }else{
+        s = "Last Dog has run \n";
+        }
+       
+    return s;
     }
     public void trig2(){
+        if (currentRun != 1) tripFlag2 = !tripFlag2;
         
     }
 }
