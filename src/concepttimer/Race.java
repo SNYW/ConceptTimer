@@ -14,10 +14,15 @@ public class Race {
     private String rTime = "00:00";
     private Long startTime;
     private int ms;
-    private int currentDog;
-    private final List<Dog> dogs = new ArrayList();
+    private int currentDog = 0;
+    private final List<Dog> dogs;
    Timer rTimer = new Timer(); 
   
+    public Race(List d) {
+    
+        this.dogs = d;
+        
+    }
     
     TimerTask rTimerTask = new TimerTask() {
         @Override
@@ -50,8 +55,8 @@ public class Race {
     }
     
     public String trig1(){
+        String s = dogs.get(currentDog).getName()+" has started to run at "+rTime;
         this.currentDog++;
-        String s = dogs.get(currentDog-1)+" has started to run at"+rTime;
         return s;
         
     }
