@@ -1,20 +1,16 @@
 package concepttimer.UI;
 
-import concepttimer.ConceptTimer;
+import concepttimer.Dog;
 import concepttimer.Race;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.TextFlow;
-import javafx.scene.text.Text;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import javafx.scene.layout.Pane;
 
 
 public class FXMLController extends Thread {
@@ -33,13 +29,21 @@ public class FXMLController extends Thread {
     @FXML
     public Text clockField;
     
+    List<Dog> d = new ArrayList();
+    Dog d1 = new Dog("Sonny", 1);
+    Dog d2 = new Dog("Rohit", 1);
+    Dog d3 = new Dog("Will", 1);
+    
     private boolean racing = false;
-    Race r = new Race(); 
+    Race r = new Race(d); 
    
     @FXML
      private void startTimer() throws InterruptedException{
       
         if (!racing){  
+            d.add(d1);
+            d.add(d2);
+            d.add(d3);
             racing = true;
             Timer t = new Timer();
             TimerTask tt = new TimerTask() {
@@ -67,16 +71,16 @@ public class FXMLController extends Thread {
      
      @FXML
      private void trig1(){
-         
-     }
+        infoArea.appendText(r.trig1());
+     }  
      
      @FXML
      private void trig2(){
          
      }
-  public void updateClock(String r){
+    public void updateClock(String r){
   
-   clockField.setText(r);
+        clockField.setText(r);
       
   }
 }

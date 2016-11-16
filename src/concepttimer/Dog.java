@@ -4,11 +4,16 @@ package concepttimer;
 public class Dog {
     private String name;
     private String owner;
-    private String team;
+    private int team;
     private int faults;
-    private int numberOfRaces;
+    private int numberOfRaces =1;
     private int avgFaults = faults/numberOfRaces;
 
+    public Dog(String n, int t){
+        this.name = n;
+        this.team = t;
+                
+    } 
     public String getName() {
         return name;
     }
@@ -33,11 +38,11 @@ public class Dog {
         this.owner = owner;
     }
 
-    public String getTeam() {
+    public int getTeam() {
         return team;
     }
 
-    public void setTeam(String team) {
+    public void setTeam(int team) {
         this.team = team;
     }
     
