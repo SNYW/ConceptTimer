@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package concepttimer;
-import concepttimer.UI.FXMLController;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-import javafx.application.Platform;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
+
 
 
 public class Race {
@@ -19,6 +15,7 @@ public class Race {
     private Long startTime;
     private int ms;
     private int currentDog;
+    private final List<Dog> dogs = new ArrayList();
    Timer rTimer = new Timer(); 
   
     
@@ -45,17 +42,23 @@ public class Race {
     }
     
     public void stopRace(){
-    
     rTimer.cancel();
-   
-    
-        
     }
     
     public String getRaceTime() {
         return this.rTime;
     }
     
+    public String trig1(){
+        this.currentDog++;
+        String s = dogs.get(currentDog-1)+" has started to run at"+rTime;
+        return s;
+        
+    }
+    public void trig2(){
+        
+    }
+}
 
     
-}
+
