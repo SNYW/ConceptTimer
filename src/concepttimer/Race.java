@@ -18,8 +18,7 @@ public class Race {
     private String rTime = "00:00";
     private Long startTime;
     private int ms;
-    
-   // private int currentDog;
+    private int currentDog;
    Timer rTimer = new Timer(); 
   
     

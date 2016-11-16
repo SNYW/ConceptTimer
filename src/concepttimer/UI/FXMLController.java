@@ -40,7 +40,6 @@ public class FXMLController extends Thread {
      private void startTimer() throws InterruptedException{
       
         if (!racing){  
-           
             racing = true;
             Timer t = new Timer();
             TimerTask tt = new TimerTask() {
@@ -54,16 +53,26 @@ public class FXMLController extends Thread {
             System.out.println("Race Started");
             infoArea.clear();
             infoArea.appendText("Race has started\n");
-            infoArea.appendText("Yellow Light");
             r.startRace();
             t.scheduleAtFixedRate(tt, 0, 10);
-        } else {r.stopRace();}
+        } else {}
         
     } 
      
      @FXML
-     private void stopTimer(Race r){
+     private void stopTimer(){
      r.stopRace();
+     racing = false;
+     }
+     
+     @FXML
+     private void trig1(){
+         
+     }
+     
+     @FXML
+     private void trig2(){
+         
      }
   public void updateClock(String r){
   
