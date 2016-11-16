@@ -21,7 +21,7 @@ public class Race {
     
    // private int currentDog;
    Timer rTimer = new Timer(); 
-   FXMLController f = new FXMLController();
+  
     
     TimerTask rTimerTask = new TimerTask() {
         @Override
@@ -48,7 +48,8 @@ public class Race {
     public void stopRace(){
     
     rTimer.cancel();
-    rTimer.purge();
+   
+    
         
     }
     

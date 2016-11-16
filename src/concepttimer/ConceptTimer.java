@@ -1,4 +1,5 @@
 package concepttimer;
+import concepttimer.UI.FXMLController;
 import java.io.IOException;
 import java.util.Timer;
 import javafx.application.Application;
@@ -14,8 +15,7 @@ import javafx.stage.WindowEvent;
 public class ConceptTimer extends Application {
        private Stage primaryStage;
        private Pane mainLayout;
-       private Timer rTimer;
-       private Double rTime;
+       
         @Override
         public void start (Stage primaryStage) throws IOException{
            this.primaryStage = primaryStage;

@@ -34,10 +34,11 @@ public class FXMLController extends Thread {
     public Text clockField;
     
     private boolean racing = false;
+    Race r = new Race(); 
    
     @FXML
      private void startTimer() throws InterruptedException{
-        Race r = new Race(); 
+      
         if (!racing){  
            // blah
             racing = true;
