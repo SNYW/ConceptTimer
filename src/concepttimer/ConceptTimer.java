@@ -1,7 +1,5 @@
 package concepttimer;
-import concepttimer.UI.FXMLController;
 import java.io.IOException;
-import java.util.Timer;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
