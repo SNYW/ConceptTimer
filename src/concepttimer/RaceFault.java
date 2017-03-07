@@ -19,12 +19,12 @@ public RaceFault(String s, Dog d){
     }
 
     
-    public String getDog() {
+    public Dog getDog() {
         return dog;
     }
 
     
-    public void setDog(String dog) {
+    public void setDog(Dog dog) {
         this.dog = dog;
     }
     
