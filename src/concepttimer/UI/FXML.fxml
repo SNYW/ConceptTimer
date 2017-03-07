@@ -7,25 +7,25 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="concepttimer.UI.FXMLController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="concepttimer.UI.FXMLController">
    <children>
-      <Button id="startButton" layoutX="53.0" layoutY="366.0" mnemonicParsing="false" onAction="#startTimer" prefHeight="145.0" prefWidth="191.0" text="Start">
+      <Button id="startButton" layoutX="56.0" layoutY="260.0" mnemonicParsing="false" onAction="#startTimer" prefHeight="145.0" prefWidth="191.0" text="Start">
          <font>
             <Font size="50.0" />
          </font></Button>
-      <Button id="triggerButton1" fx:id="trig1" layoutX="340.0" layoutY="535.0" mnemonicParsing="false" onAction="#trig1" text="Trig1" />
-      <Button id="triggerButton2" fx:id="trig2" layoutX="412.0" layoutY="535.0" mnemonicParsing="false" text="Trig2" />
-      <Button id="stopButton" layoutX="562.0" layoutY="362.0" mnemonicParsing="false" onAction="#stopTimer" prefHeight="153.0" prefWidth="191.0" text="Stop">
+      <Button id="triggerButton1" fx:id="trig1" layoutX="343.0" layoutY="429.0" mnemonicParsing="false" onAction="#trig1" text="Trig1" />
+      <Button id="triggerButton2" fx:id="trig2" layoutX="415.0" layoutY="429.0" mnemonicParsing="false" text="Trig2" />
+      <Button id="stopButton" layoutX="565.0" layoutY="256.0" mnemonicParsing="false" onAction="#stopTimer" prefHeight="153.0" prefWidth="191.0" text="Stop">
          <font>
             <Font size="52.0" />
          </font></Button>
-      <Circle id="yb1" fx:id="yb1" fill="#ffbf1f" layoutX="53.0" layoutY="319.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle id="yb2" fx:id="yb2" fill="#ffce1f" layoutX="134.0" layoutY="318.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle id="yb3" fx:id="yb3" fill="#ffd71f" layoutX="214.0" layoutY="319.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle id="gb1" fx:id="gb1" fill="#2aff1f" layoutX="399.0" layoutY="319.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-      <Circle id="faultb" fx:id="faultb" fill="#ff1f1f" layoutX="667.0" layoutY="323.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-      <TextArea fx:id="infoArea" layoutX="281.0" layoutY="362.0" prefHeight="153.0" prefWidth="240.0" text="Press Start to Begin Simulation" />
-      <Text fx:id="clockField" layoutX="309.0" layoutY="183.0" scaleX="3.7" scaleY="3.8" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00:00" wrappingWidth="208.13671875">
+      <Circle id="yb1" fx:id="yb1" fill="#ffbf1f" layoutX="124.0" layoutY="209.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle id="yb2" fx:id="yb2" fill="#ffce1f" layoutX="262.0" layoutY="208.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle id="yb3" fx:id="yb3" fill="#ffd71f" layoutX="404.0" layoutY="210.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle id="gb1" fx:id="gb1" fill="#2aff1f" layoutX="537.0" layoutY="210.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle id="faultb" fx:id="faultb" fill="#ff1f1f" layoutX="663.0" layoutY="211.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextArea fx:id="infoArea" layoutX="284.0" layoutY="256.0" prefHeight="153.0" prefWidth="240.0" text="Press Start to Begin Simulation" />
+      <Text fx:id="clockField" layoutX="310.0" layoutY="102.0" scaleX="3.7" scaleY="3.8" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00:00" wrappingWidth="208.13671875">
          <font>
             <Font size="55.0" />
          </font>
