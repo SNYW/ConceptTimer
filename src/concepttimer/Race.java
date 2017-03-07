@@ -17,7 +17,7 @@ public class Race {
     private int currentDog = 0;
     private List<Dog> dogs = null;
     private boolean dogRunning = false;
-    private List<RaceFault> faults = null;
+    public List<RaceFault> faults = new ArrayList<RaceFault>();
     
     private int currentRun = 0;    
    Timer rTimer = new Timer(); 
@@ -55,6 +55,7 @@ public class Race {
     // rTimer.purge();
     racing = false;
     rTime = "00:00:00";
+    
     }
     
     public String getRaceTime() {
@@ -62,9 +63,10 @@ public class Race {
     }
     
     public String trig1(){
-        if (dogRunning = true){
+        if (dogRunning){
             RaceFault f = new RaceFault(rTime, dogs.get(currentDog));
             faults.add(f);
+            System.out.println(f.toString());
         }
         String retStr = dogs.get(currentDog).getName()+" started a Run \n @ "+rTime+"\n";
         currentDog++;

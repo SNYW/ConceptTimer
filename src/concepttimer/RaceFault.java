@@ -8,7 +8,14 @@ public RaceFault(String s, Dog d){
     this.dog = d;
     this.time = s;
 }
-   
+
+@Override
+public String toString(){
+    
+    String dogString = this.dog.getName()+" Faulted at "+this.time;
+    
+    return dogString;
+}
     public String getTime() {
         return time;
     }

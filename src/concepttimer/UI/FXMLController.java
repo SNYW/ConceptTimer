@@ -2,6 +2,7 @@ package concepttimer.UI;
 
 import concepttimer.Dog;
 import concepttimer.Race;
+import concepttimer.RaceFault;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -28,6 +29,8 @@ public class FXMLController extends Thread {
     private TextArea infoArea;
     @FXML
     public Text clockField;
+    @FXML
+    public TextArea reportArea;
     
     List<Dog> d = new ArrayList();
     Dog d1 = new Dog("Sonny", 1);
@@ -69,6 +72,9 @@ public class FXMLController extends Thread {
      racing = false; }
      
      infoArea.appendText("Race has Stopped \n");
+     for(RaceFault r : r.faults){
+         reportArea.appendText(r.toString()+"\n");
+     }
      }
      
      @FXML
@@ -78,7 +84,7 @@ public class FXMLController extends Thread {
      
      @FXML
      private void trig2(){
-         
+         r.trig2();
      }
     public void updateClock(String r){
   
