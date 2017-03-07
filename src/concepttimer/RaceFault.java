@@ -2,8 +2,12 @@ package concepttimer;
 
 public class RaceFault {
     private String time;
-    private String dog;
+    private Dog dog;
 
+public RaceFault(String s, Dog d){
+    this.dog = d;
+    this.time = s;
+}
    
     public String getTime() {
         return time;
