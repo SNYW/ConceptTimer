@@ -17,8 +17,7 @@ public class Race {
     private int currentDog = 0;
     private List<Dog> dogs = null;
     private boolean dogRunning = false;
-    private boolean tripFlag1 = false;
-    private boolean tripFlag2 = true;
+    
     private int currentRun = 0;    
    Timer rTimer = new Timer(); 
   
@@ -52,8 +51,9 @@ public class Race {
     
     public void stopRace(){
     rTimer.cancel();
-    rTimer.purge();
+    // rTimer.purge();
     racing = false;
+    rTime = "00:00:00";
     }
     
     public String getRaceTime() {
@@ -61,28 +61,16 @@ public class Race {
     }
     
     public String trig1(){
-        tripFlag1 = !tripFlag1;
-        String s;
-        if (dogRunning){
-            s = "Crossover Fault \n"
-                +dogs.get(currentDog).getName()+" faulted at "+rTime+"\n";
-                return s; }
-        if (currentRun != 1){
-            if (tripFlag1 == tripFlag2) dogRunning = !dogRunning; }
         
-        if (currentDog <= dogs.size()-1){
-            s = dogs.get(currentDog).getName()+" started to run at "+rTime+"\n";
-            this.currentDog++;
-            this.currentRun++;
-            return s;
-        }else{
-            s = "Last Dog has run \n";
-        }
+        String retStr = dogs.get(currentDog).getName()+" started a Run \n @ "+rTime+"\n";
+        currentDog++;
+        return retStr;
+        
        
-    return s;
+    
     }
     public void trig2(){
-        if (currentRun != 1) tripFlag2 = !tripFlag2;
+       
         
     }
 }
