@@ -13,8 +13,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 
-
 public class FXMLController extends Thread {
+
     @FXML
     private Circle yb1;
     @FXML
@@ -31,19 +31,19 @@ public class FXMLController extends Thread {
     public Text clockField;
     @FXML
     public TextArea reportArea;
-    
+
     List<Dog> d = new ArrayList();
     Dog d1 = new Dog("Sonny", 1);
     Dog d2 = new Dog("Rohit", 1);
     Dog d3 = new Dog("Will", 1);
-    
+
     private boolean racing = false;
-    Race r = new Race(d); 
-   
+    Race r = new Race(d);
+
     @FXML
-     private void startTimer() throws InterruptedException{
-      
-        if (!racing){
+    private void startTimer() throws InterruptedException {
+
+        if (!racing) {
             r.setCurrentDog(0);
             d.clear();
             d.add(d1);
@@ -52,63 +52,60 @@ public class FXMLController extends Thread {
             racing = true;
             Timer t = new Timer();
             TimerTask tt = new TimerTask() {
-        @Override
-        public void run() {
-               Platform.runLater(() -> {
-                   updateClock(r.getRaceTime());
-               });
-        }
-        };
+                @Override
+                public void run() {
+                    Platform.runLater(() -> {
+                        updateClock(r.getRaceTime());
+                    });
+                }
+            };
             System.out.println("Race Started");
             infoArea.clear();
             infoArea.appendText("Race has started\n");
             r.startRace();
             t.scheduleAtFixedRate(tt, 0, 10);
-        } else {}
-        
-    } 
-     
-     @FXML
-     private void stopTimer(){
-     reportArea.clear();
-     if (r.racing) {
-         reportArea.appendText("Total Time = "+r.getRaceTime()+" with ["+r.getDogs().size()+"] Dogs and ["+r.getFaults().size()+"] Faults \n");
-         r.stopRace();
-         racing = false; 
-         }
-     
-     infoArea.appendText("Race has Stopped \n");
-     for(RaceFault r : r.getFaults()){
-         reportArea.appendText(r.toString()+"\n");
-     }
-     }
-     
-     @FXML
-     private void trig1(){
-        infoArea.appendText(r.trig1());
-        if (r.getCurrentDog() >= r.getDogs().size()){
-             stopTimer();
-         }
-     }  
-     
-     @FXML
-     private void trig2()
-    {
-         if (racing)
-            {
-                if (r.getCurrentDog() >= r.getDogs().size())
-                {
-                    stopTimer();
-                } 
-                else 
-                {
-                    r.trig2();
-                }
-            }
+        } else {
+        }
+
     }
-    public void updateClock(String r){
-  
+
+    @FXML
+    private void stopTimer() {
+        reportArea.clear();
+        if (r.racing) {
+            reportArea.appendText("Total Time = " + r.getRaceTime() + " with [" + r.getDogs().size() + "] Dogs and [" + r.getFaults().size() + "] Faults \n");
+            r.stopRace();
+            racing = false;
+        }
+
+        infoArea.appendText("Race has Stopped \n");
+        for (RaceFault r : r.getFaults()) {
+            reportArea.appendText(r.toString() + "\n");
+        }
+    }
+
+    @FXML
+    private void trig1() {
+        infoArea.appendText(r.trig1());
+        if (r.getCurrentDog() >= r.getDogs().size()) {
+            stopTimer();
+        }
+    }
+
+    @FXML
+    private void trig2() {
+        if (racing) {
+            if (r.getCurrentDog() >= r.getDogs().size()) {
+                stopTimer();
+            } else {
+                r.trig2();
+            }
+        }
+    }
+
+    public void updateClock(String r) {
+
         clockField.setText(r);
-      
-  }
+
+    }
 }

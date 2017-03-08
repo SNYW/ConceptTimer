@@ -1,4 +1,3 @@
-
 package concepttimer;
 
 import java.util.ArrayList;
@@ -7,9 +6,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-
-
 public class Race {
+
     public boolean racing = false;
     private String rTime = "00:00:00";
     private Long startTime;
@@ -18,87 +16,95 @@ public class Race {
     private List<Dog> dogs = null;
     private int trig1count, trig2count = 0;
     private List<RaceFault> faults = new ArrayList<RaceFault>();
-    Timer rTimer = new Timer(); 
-    
-    private int currentRun = 0;    
-   
-  
+    Timer rTimer = new Timer();
+
+    private int currentRun = 0;
+
     public Race(List d) {
-    
+
         this.dogs = d;
-        
+
     }
-    
+
     TimerTask rTimerTask = new TimerTask() {
         @Override
         public void run() {
-        Long r = (System.currentTimeMillis() -  startTime);
-        if (ms<99) {ms++;}else{ms=00;}
-        
-        rTime = String.format("%02d:%02d:%02d", 
-                TimeUnit.MILLISECONDS.toMinutes(r),
-                TimeUnit.MILLISECONDS.toSeconds(r) - 
-                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(r)),
-                ms); 
-        
-        
-        } 
+            Long r = (System.currentTimeMillis() - startTime);
+            if (ms < 99) {
+                ms++;
+            } else {
+                ms = 00;
+            }
+
+            rTime = String.format("%02d:%02d:%02d",
+                    TimeUnit.MILLISECONDS.toMinutes(r),
+                    TimeUnit.MILLISECONDS.toSeconds(r)
+                    - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(r)),
+                    ms);
+
+        }
     };
-    
-    public void startRace(){
+
+    public void startRace() {
+        currentDog = 0;
+        trig1count = 0;
+        trig2count = 0;
         rTime = "00:00:00";
-        rTimer = new Timer(); 
+        rTimer = new Timer();
         racing = true;
         rTimer.scheduleAtFixedRate(rTimerTask = new TimerTask() {
             @Override
-            public void run()   {
-                Long r = (System.currentTimeMillis() -  startTime);
-                if (ms<99) {ms++;}else{ms=00;}
-        
-            rTime = String.format("%02d:%02d:%02d", 
-                TimeUnit.MILLISECONDS.toMinutes(r),
-                TimeUnit.MILLISECONDS.toSeconds(r) - 
-                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(r)),
-                ms); 
-        
-        
-                                } 
-        } ,10, 10);
-            
+            public void run() {
+                Long r = (System.currentTimeMillis() - startTime);
+                if (ms < 99) {
+                    ms++;
+                } else {
+                    ms = 00;
+                }
+
+                rTime = String.format("%02d:%02d:%02d",
+                        TimeUnit.MILLISECONDS.toMinutes(r),
+                        TimeUnit.MILLISECONDS.toSeconds(r)
+                        - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(r)),
+                        ms);
+
+            }
+        }, 10, 10);
+
         startTime = System.currentTimeMillis();
     }
-    
-    public void stopRace(){
-    rTimer.cancel();
-    // rTimer.purge();
-    racing = false;
-    //rTime = "00:00:00";
-    
+
+    public void stopRace() {
+        rTimer.cancel();
+        // rTimer.purge();
+        racing = false;
+        //rTime = "00:00:00";
+        currentDog = 0;
+        trig1count = 0;
+        trig2count = 0;
+
     }
-    
+
     public String getRaceTime() {
         return this.rTime;
     }
-    
-    public String trig1(){
-        if (trig1count > trig2count){
+
+    public String trig1() {
+        if (trig1count > trig2count) {
             RaceFault f = new RaceFault(rTime, getDogs().get(getCurrentDog()));
             getFaults().add(f);
             System.out.println(f.toString());
         }
-        String retStr = getDogs().get(getCurrentDog()).getName()+" started a Run \n @ "+rTime+"\n";
+        String retStr = getDogs().get(getCurrentDog()).getName() + " started a Run \n @ " + rTime + "\n";
         currentDog++;
         trig1count++;
         return retStr;
-        
-        
-       
-    
+
     }
-    public void trig2(){
-       trig2count++;
-       
-        
+
+    public void trig2() {
+        trig2count++;
+
     }
 
     /**
@@ -143,6 +149,3 @@ public class Race {
         this.currentDog = currentDog;
     }
 }
-
-    
-
