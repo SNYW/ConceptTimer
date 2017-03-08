@@ -68,8 +68,12 @@ public class FXMLController extends Thread {
      
      @FXML
      private void stopTimer(){
-     if (r.racing) {r.stopRace();
-     racing = false; }
+     reportArea.clear();
+     if (r.racing) {
+         reportArea.appendText("Total Time = "+r.getRaceTime()+" with ["+r.getDogs().size()+"] Dogs and ["+r.getFaults().size()+"] Faults \n");
+         r.stopRace();
+         racing = false; 
+         }
      
      infoArea.appendText("Race has Stopped \n");
      for(RaceFault r : r.getFaults()){
@@ -80,12 +84,15 @@ public class FXMLController extends Thread {
      @FXML
      private void trig1(){
         infoArea.appendText(r.trig1());
+        if (r.getCurrentDog() >= r.getDogs().size()){
+             stopTimer();
+         }
      }  
      
      @FXML
      private void trig2(){
          r.trig2();
-         if (r.getCurrentDog() <= r.getDogs().size()){
+         if (r.getCurrentDog() >= r.getDogs().size()){
              stopTimer();
          }
      }
