@@ -135,6 +135,13 @@ public class Race {
     public int getCurrentRun() {
         return currentRun;
     }
+
+    /**
+     * @param currentDog the currentDog to set
+     */
+    public void setCurrentDog(int currentDog) {
+        this.currentDog = currentDog;
+    }
 }
 
     

@@ -43,7 +43,9 @@ public class FXMLController extends Thread {
     @FXML
      private void startTimer() throws InterruptedException{
       
-        if (!racing){  
+        if (!racing){
+            r.setCurrentDog(0);
+            d.clear();
             d.add(d1);
             d.add(d2);
             d.add(d3);
@@ -90,12 +92,20 @@ public class FXMLController extends Thread {
      }  
      
      @FXML
-     private void trig2(){
-         r.trig2();
-         if (r.getCurrentDog() >= r.getDogs().size()){
-             stopTimer();
-         }
-     }
+     private void trig2()
+    {
+         if (racing)
+            {
+                if (r.getCurrentDog() >= r.getDogs().size())
+                {
+                    stopTimer();
+                } 
+                else 
+                {
+                    r.trig2();
+                }
+            }
+    }
     public void updateClock(String r){
   
         clockField.setText(r);
