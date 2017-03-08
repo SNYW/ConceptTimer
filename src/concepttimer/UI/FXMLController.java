@@ -72,7 +72,7 @@ public class FXMLController extends Thread {
      racing = false; }
      
      infoArea.appendText("Race has Stopped \n");
-     for(RaceFault r : r.faults){
+     for(RaceFault r : r.getFaults()){
          reportArea.appendText(r.toString()+"\n");
      }
      }
@@ -85,6 +85,9 @@ public class FXMLController extends Thread {
      @FXML
      private void trig2(){
          r.trig2();
+         if (r.getCurrentDog() <= r.getDogs().size()){
+             stopTimer();
+         }
      }
     public void updateClock(String r){
   
