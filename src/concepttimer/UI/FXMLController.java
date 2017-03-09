@@ -39,16 +39,14 @@ public class FXMLController extends Thread {
 
     private boolean racing = false;
     Race r = new Race(d);
+    
 
     @FXML
     private void startTimer() throws InterruptedException {
 
         if (!racing) {
             r.setCurrentDog(0);
-            d.clear();
-            d.add(d1);
-            d.add(d2);
-            d.add(d3);
+            d.clear();            
             racing = true;
             Timer t = new Timer();
             TimerTask tt = new TimerTask() {
@@ -71,6 +69,7 @@ public class FXMLController extends Thread {
 
     @FXML
     private void stopTimer() {
+        
         reportArea.clear();
         if (r.racing) {
             reportArea.appendText("Total Time = " + r.getRaceTime() + " with [" + r.getDogs().size() + "] Dogs and [" + r.getFaults().size() + "] Faults \n");
