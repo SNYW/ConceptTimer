@@ -13,60 +13,60 @@
 <?import javafx.scene.text.Text?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="concepttimer.UI.FXMLController">
-   <children>
-      <TabPane prefHeight="480.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Race">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Button id="startButton" layoutX="54.0" layoutY="261.0" mnemonicParsing="false" onAction="#startTimer" prefHeight="145.0" prefWidth="191.0" text="Start">
-                           <font>
-                              <Font size="50.0" />
-                           </font>
-                        </Button>
-                        <Button id="triggerButton1" fx:id="trig1" layoutX="317.0" layoutY="237.0" mnemonicParsing="false" onAction="#trig1" text="Trig1" />
-                        <Button id="triggerButton2" fx:id="trig2" layoutX="450.0" layoutY="237.0" mnemonicParsing="false" onAction="#trig2" text="Trig2" />
-                        <Button id="stopButton" layoutX="557.0" layoutY="261.0" mnemonicParsing="false" onAction="#stopTimer" prefHeight="153.0" prefWidth="191.0" text="Stop">
-                           <font>
-                              <Font size="52.0" />
-                           </font>
-                        </Button>
-                        <TextArea fx:id="infoArea" layoutX="280.0" layoutY="261.0" prefHeight="153.0" prefWidth="240.0" text="Press Start to Begin Simulation" />
-                        <Text fx:id="clockField" boundsType="LOGICAL_VERTICAL_CENTER" layoutX="190.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00:00" textOrigin="CENTER" wrappingWidth="585.8033752441406" AnchorPane.bottomAnchor="268.5" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="24.196624755859375" AnchorPane.topAnchor="41.5">
-                           <font>
-                              <Font size="96.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Reports">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TextArea fx:id="reportArea" layoutX="14.0" layoutY="13.0" prefHeight="416.0" prefWidth="770.0" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-            <Tab text="Race Setup">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <CheckBox layoutX="287.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Use Dog Names" />
-                        <CheckBox layoutX="287.0" layoutY="41.0" mnemonicParsing="false" selected="true" text="Fault Detection" />
-                        <TextField fx:id="addDogField" layoutX="14.0" layoutY="20.0" prefHeight="31.0" prefWidth="156.0" promptText="Add New Dog Name" />
-                        <Button layoutX="182.0" layoutY="20.0" mnemonicParsing="false" onAction="#addDogButton" text="Add" />
-                        <TextArea fx:id="addDogArea" layoutX="14.0" layoutY="72.0" prefHeight="200.0" prefWidth="200.0" />
-                        <Label layoutX="14.0" layoutY="285.0" prefHeight="21.0" prefWidth="132.0" text="Current Race Order" />
-                        <Button layoutX="155.0" layoutY="280.0" mnemonicParsing="false" onAction="#addDogClear" text="Clear" />
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </children>
+    <children>
+        <TabPane prefHeight="480.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Race">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Button id="startButton" layoutX="54.0" layoutY="261.0" mnemonicParsing="false" onAction="#startTimer" prefHeight="145.0" prefWidth="191.0" text="Start">
+                                    <font>
+                                        <Font size="50.0" />
+                                    </font>
+                                </Button>
+                                <Button id="triggerButton1" fx:id="trig1" layoutX="317.0" layoutY="237.0" mnemonicParsing="false" onAction="#trig1" text="Trig1" />
+                                <Button id="triggerButton2" fx:id="trig2" layoutX="450.0" layoutY="237.0" mnemonicParsing="false" onAction="#trig2" text="Trig2" />
+                                <Button id="stopButton" layoutX="557.0" layoutY="261.0" mnemonicParsing="false" onAction="#stopTimer" prefHeight="153.0" prefWidth="191.0" text="Stop">
+                                    <font>
+                                        <Font size="52.0" />
+                                    </font>
+                                </Button>
+                                <TextArea fx:id="infoArea" layoutX="280.0" layoutY="261.0" prefHeight="153.0" prefWidth="240.0" text="Press Start to Begin Simulation" />
+                                <Text fx:id="clockField" boundsType="LOGICAL_VERTICAL_CENTER" layoutX="190.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00:00" textOrigin="CENTER" wrappingWidth="585.8033752441406" AnchorPane.bottomAnchor="268.5" AnchorPane.leftAnchor="190.0" AnchorPane.rightAnchor="24.196624755859375" AnchorPane.topAnchor="41.5">
+                                    <font>
+                                        <Font size="96.0" />
+                                    </font>
+                                </Text>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Reports">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TextArea fx:id="reportArea" layoutX="14.0" layoutY="13.0" prefHeight="416.0" prefWidth="770.0" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Race Setup">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <CheckBox layoutX="287.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Use Dog Names" />
+                                <CheckBox layoutX="287.0" layoutY="41.0" mnemonicParsing="false" selected="true" text="Fault Detection" />
+                                <TextField fx:id="addDogField" layoutX="14.0" layoutY="20.0" prefHeight="31.0" prefWidth="156.0" promptText="Add New Dog Name" />
+                                <Button layoutX="182.0" layoutY="20.0" mnemonicParsing="false" onAction="#addDogButton" text="Add" />
+                                <TextArea fx:id="addDogArea" layoutX="14.0" layoutY="72.0" prefHeight="200.0" prefWidth="200.0" />
+                                <Label layoutX="14.0" layoutY="285.0" prefHeight="21.0" prefWidth="132.0" text="Current Race Order" />
+                                <Button layoutX="155.0" layoutY="280.0" mnemonicParsing="false" onAction="#addDogClear" text="Clear" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
 </Pane>

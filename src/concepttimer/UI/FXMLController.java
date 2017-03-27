@@ -50,23 +50,20 @@ public class FXMLController extends Thread {
     private void startTimer() throws InterruptedException {
 
         if (!racing) {
-          /*  d.clear();
-            d.add(d1);
-            d.add(d2);
-            d.add(d3); */
-            Dog addDog = new Dog("o", 1);
+            dogList.clear();
+
             String[] dogArray = addDogArea.getText().split(",");
-            for (int ii = 0; ii < dogArray.length; ii++){
-                
+            for (int ii = 0; ii < dogArray.length; ii++) {
+                Dog addDog = new Dog(null, 1);
                 addDog.setName(dogArray[ii].trim().replaceAll("\n", ""));
-                
-                if (!dogArray[ii].trim().isEmpty()){
-                    
+
+                if (!dogArray[ii].trim().isEmpty()) {
+
                     dogList.add(addDog);
-                    
+
                 }
             }
-            
+
             racing = true;
             Timer t = new Timer();
             TimerTask tt = new TimerTask() {
@@ -78,6 +75,7 @@ public class FXMLController extends Thread {
                 }
             };
             System.out.println("Race Started");
+            r.setDogs(dogList);
             infoArea.clear();
             infoArea.appendText("Race has started\n");
             r.startRace();
@@ -102,7 +100,7 @@ public class FXMLController extends Thread {
             reportArea.appendText(r.toString() + "\n");
         }
     }
-    
+
     @FXML
     private void trig1() {
         if (racing) {
@@ -123,20 +121,20 @@ public class FXMLController extends Thread {
             }
         }
     }
-    
+
     @FXML
     private void addDogButton() {
         System.out.println(addDogField.getText());
-        if (!addDogField.getText().trim().isEmpty()){
-            addDogArea.appendText(addDogField.getText()+", \n");
+        if (!addDogField.getText().trim().isEmpty()) {
+            addDogArea.appendText(addDogField.getText() + ", \n");
             addDogField.clear();
             addDogField.setPromptText("Add New Dog Name");
-            
+
         }
     }
-    
+
     @FXML
-    private void addDogClear(){
+    private void addDogClear() {
         addDogArea.clear();
     }
 
