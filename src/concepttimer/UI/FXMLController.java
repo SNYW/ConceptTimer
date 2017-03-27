@@ -3,6 +3,7 @@ package concepttimer.UI;
 import concepttimer.Dog;
 import concepttimer.Race;
 import concepttimer.RaceFault;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
@@ -11,6 +12,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 public class FXMLController extends Thread {
@@ -31,24 +33,40 @@ public class FXMLController extends Thread {
     public Text clockField;
     @FXML
     public TextArea reportArea;
+    @FXML
+    public TextField addDogField;
+    @FXML
+    public TextArea addDogArea;
 
-    List<Dog> d = new ArrayList();
+    List<Dog> dogList = new ArrayList();
     Dog d1 = new Dog("Sonny", 1);
     Dog d2 = new Dog("Rohit", 1);
     Dog d3 = new Dog("Will", 1);
 
     private boolean racing = false;
-    Race r = new Race(d);
+    Race r = new Race(dogList);
 
     @FXML
     private void startTimer() throws InterruptedException {
 
         if (!racing) {
-            d.clear();
+          /*  d.clear();
             d.add(d1);
             d.add(d2);
-            d.add(d3);
-            r.setCurrentDog(0);
+            d.add(d3); */
+            Dog addDog = new Dog("o", 1);
+            String[] dogArray = addDogArea.getText().split(",");
+            for (int ii = 0; ii < dogArray.length; ii++){
+                
+                addDog.setName(dogArray[ii].trim().replaceAll("\n", ""));
+                
+                if (!dogArray[ii].trim().isEmpty()){
+                    
+                    dogList.add(addDog);
+                    
+                }
+            }
+            
             racing = true;
             Timer t = new Timer();
             TimerTask tt = new TimerTask() {
@@ -84,7 +102,7 @@ public class FXMLController extends Thread {
             reportArea.appendText(r.toString() + "\n");
         }
     }
-
+    
     @FXML
     private void trig1() {
         if (racing) {
@@ -104,6 +122,22 @@ public class FXMLController extends Thread {
                 r.trig2();
             }
         }
+    }
+    
+    @FXML
+    private void addDogButton() {
+        System.out.println(addDogField.getText());
+        if (!addDogField.getText().trim().isEmpty()){
+            addDogArea.appendText(addDogField.getText()+", \n");
+            addDogField.clear();
+            addDogField.setPromptText("Add New Dog Name");
+            
+        }
+    }
+    
+    @FXML
+    private void addDogClear(){
+        addDogArea.clear();
     }
 
     public void updateClock(String r) {
