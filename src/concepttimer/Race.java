@@ -91,6 +91,7 @@ public class Race {
     }
 
     public String trig1() {
+       if(racing){
         if (useFault){
              if (trig1count > trig2count) {
                 RaceFault f = new RaceFault(rTime, getDogs().get(getCurrentDog()));
@@ -104,10 +105,13 @@ public class Race {
         return retStr;
 
     }
+        return null;
+    }
 
     public void trig2() {
+        if (racing){
         trig2count++;
-
+        }
     }
 
     /**
