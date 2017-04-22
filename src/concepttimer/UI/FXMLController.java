@@ -10,6 +10,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -37,6 +38,10 @@ public class FXMLController extends Thread {
     public TextField addDogField;
     @FXML
     public TextArea addDogArea;
+    @FXML
+    public CheckBox dognameCheck;
+    @FXML
+    public CheckBox faultdetectionCheck;
 
     List<Dog> dogList = new ArrayList();
     Dog d1 = new Dog("Sonny", 1);
@@ -50,6 +55,8 @@ public class FXMLController extends Thread {
     private void startTimer() throws InterruptedException {
 
         if (!racing) {
+            if (dognameCheck.isSelected()){               
+            
             dogList.clear();
 
             String[] dogArray = addDogArea.getText().split(",");
@@ -63,7 +70,14 @@ public class FXMLController extends Thread {
 
                 }
             }
-
+            } else {
+                for (int ii = 0; ii < 100; ii++){
+                    Dog addDog = new Dog(null, 1);
+                    addDog.setName(Integer.toString(ii));
+                    dogList.add(addDog);
+                }
+            }
+          
             racing = true;
             Timer t = new Timer();
             TimerTask tt = new TimerTask() {
@@ -75,6 +89,7 @@ public class FXMLController extends Thread {
                 }
             };
             System.out.println("Race Started");
+            r.setUseFault(faultdetectionCheck.isSelected());
             r.setDogs(dogList);
             infoArea.clear();
             infoArea.appendText("Race has started\n");

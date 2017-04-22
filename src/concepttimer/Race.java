@@ -17,6 +17,7 @@ public class Race {
     private int trig1count, trig2count = 0;
     private List<RaceFault> faults = new ArrayList<RaceFault>();
     Timer rTimer = new Timer();
+    private Boolean useFault = null;
 
     private int currentRun = 0;
 
@@ -90,10 +91,12 @@ public class Race {
     }
 
     public String trig1() {
-        if (trig1count > trig2count) {
-            RaceFault f = new RaceFault(rTime, getDogs().get(getCurrentDog()));
-            getFaults().add(f);
-            System.out.println(f.toString());
+        if (useFault){
+             if (trig1count > trig2count) {
+                RaceFault f = new RaceFault(rTime, getDogs().get(getCurrentDog()));
+                getFaults().add(f);
+                System.out.println(f.toString());
+            }
         }
         String retStr = getDogs().get(getCurrentDog()).getName() + " started a Run \n @ " + rTime + "\n";
         currentDog++;
@@ -147,5 +150,9 @@ public class Race {
      */
     public void setCurrentDog(int currentDog) {
         this.currentDog = currentDog;
+    }
+    
+    public void setUseFault(Boolean f){
+        this.useFault = f;
     }
 }
