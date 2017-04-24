@@ -13,6 +13,8 @@ public class Race {
     private Long startTime;
     private int ms;
     private int currentDog = 0;
+    private int trip1Cooldown = 0;
+    private int trip2Cooldown = 0;
     private List<Dog> dogs = null;
     private int trig1count, trig2count = 0;
     private List<RaceFault> faults = new ArrayList<RaceFault>();
@@ -30,6 +32,7 @@ public class Race {
     TimerTask rTimerTask = new TimerTask() {
         @Override
         public void run() {
+            tripChecker();
             Long r = (System.currentTimeMillis() - startTime);
             if (ms < 99) {
                 ms++;
@@ -47,6 +50,8 @@ public class Race {
     };
 
     public void startRace() {
+        trip1Cooldown = 0;
+        trip2Cooldown = 0;
         currentDog = 0;
         trig1count = 0;
         trig2count = 0;
@@ -56,6 +61,7 @@ public class Race {
         rTimer.scheduleAtFixedRate(rTimerTask = new TimerTask() {
             @Override
             public void run() {
+                tripChecker();
                 Long r = (System.currentTimeMillis() - startTime);
                 if (ms < 99) {
                     ms++;
@@ -91,7 +97,7 @@ public class Race {
     }
 
     public String trig1() {
-       if(racing){
+       if(racing&&trip1Cooldown==0){
         if (useFault){
              if (trig1count > trig2count) {
                 RaceFault f = new RaceFault(rTime, getDogs().get(getCurrentDog()));
@@ -102,6 +108,7 @@ public class Race {
         String retStr = getDogs().get(getCurrentDog()).getName() + " started a Run \n @ " + rTime + "\n";
         currentDog++;
         trig1count++;
+        trip1Cooldown = 100;
         return retStr;
 
     }
@@ -109,9 +116,22 @@ public class Race {
     }
 
     public void trig2() {
-        if (racing){
+        if (racing&&trip2Cooldown==0){
         trig2count++;
+        trip2Cooldown = 100;
         }
+    }
+    
+    public void tripChecker()
+    {   System.out.println(trip1Cooldown+"--"+trip2Cooldown);
+        if (trip1Cooldown > 0)
+                {
+                    trip1Cooldown--;
+                }
+        if (trip2Cooldown > 0)
+                {
+                    trip2Cooldown--;
+                }
     }
 
     /**
